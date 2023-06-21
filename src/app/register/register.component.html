@@ -1,0 +1,35 @@
+<div class="rform">
+<form [formGroup]="registerForm" (ngSubmit)="registerUser()">
+    <h2>Register Here</h2>
+    <h5>Enter Correct Details</h5>
+    <br>
+    <label for="user">User :</label>
+    <input type="text" placeholder="Enter UserName" formControlName="user">
+    <br>
+    <span *ngIf="user && user.invalid && user.touched">Invalid User Name</span>
+    <br>
+    <label for="name">Name :</label>
+    <input type="text" placeholder="Enter FullName" formControlName="name">
+    <br>
+    <span *ngIf="name && name.invalid && name.touched">Invalid Name</span>
+    <br>
+    <label for="email">Email :</label>
+    <input type="email" placeholder="Enter Email" formControlName="email">
+    <br>
+    <span *ngIf="email && email.invalid && email.touched">Invalid Email</span>
+    <br>
+    <label for="Phone">Phone :</label>
+    <input type="number" placeholder="Enter Phone" formControlName="phone">
+    <br>
+    <span *ngIf="phone && phone.invalid && phone.touched">Invalid Phone Number</span>
+    <br>
+    <label for="password">Password :</label>
+    <input type="password" placeholder="Enter Password" formControlName="password">
+    <br>
+    <span *ngIf="password && password.invalid && password.touched">Invalid Password</span>
+    <br>
+
+    <button [disabled]="registerForm.invalid">login</button>
+    
+  </form>
+</div>

@@ -1,0 +1,17 @@
+.rform{
+    text-align: center;
+    
+    background-color: black;
+    margin-left: 40%;
+    margin-right: 40%;
+    margin-top: 2%;
+}
+span{
+    color: red;
+}
+input{
+    border-color: aqua;
+}
+h2,h5,label{
+    color: aqua;
+}
