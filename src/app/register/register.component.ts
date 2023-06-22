@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import{FormGroup,FormControl,Validators} from '@angular/forms'
+import { DetailsService } from '../details.service'
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
@@ -7,6 +10,8 @@ import{FormGroup,FormControl,Validators} from '@angular/forms'
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+  constructor(private details:DetailsService, private route:Router,private http:HttpClient){}
+
 registerForm=new FormGroup({
   user: new FormControl('',Validators.required),
   name: new FormControl('',Validators.required),
@@ -15,7 +20,12 @@ registerForm=new FormGroup({
   password: new FormControl('', [Validators.required,Validators.minLength(8),Validators.maxLength(32)]),
 })
 registerUser(){
-  console.warn(this.registerForm.value)
+  this.details.saveDetailsData(this.registerForm.value).subscribe((result)=>{
+    console.log(result)
+    this.registerForm.reset();
+    this.route.navigate(['login']);
+  }
+  );
   window.alert("registered sucessfully")
 }
 get user(){

@@ -22,6 +22,15 @@ const routes: Routes = [
     path:'',
    component: HomeComponent
    },
+   {
+    path:'login/register',
+    component: RegisterComponent
+   },
+   {
+    path:'register/login',
+    component: LoginComponent
+   }
+ 
 
 ];
 
