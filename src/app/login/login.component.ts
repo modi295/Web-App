@@ -18,12 +18,20 @@ export class LoginComponent {
       password: new FormControl('',[Validators.required,Validators.minLength(8),Validators.maxLength(32)])
     }
     )
+    
     loginUser(){
       this.details.checkData(this.loginForm.value).subscribe((res:any)=>{
         const person =res.find((a:any)=>{
           return a.user === this.loginForm.value.user && a.password ===this.loginForm.value.password
         })
         if(person){
+          this.details.saveLoginData(this.loginForm.value).subscribe((result:any)=>{
+            localStorage.setItem("token",result.token);
+            console.log(result)
+            this.loginForm.reset();
+            this.route.navigate(['/about']);
+          }
+          );
           alert('login succesful');
           this.loginForm.reset();
           this.route.navigate(['']);
@@ -33,6 +41,7 @@ export class LoginComponent {
         }
       }
       );
+      
     }
     
     get user(){
