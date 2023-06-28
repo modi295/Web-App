@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DetailsService } from '../details.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-about',
@@ -7,9 +8,15 @@ import { DetailsService } from '../details.service';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent {
-  constructor(private detailsServices:DetailsService){}
+  constructor(private details:DetailsService,private router:Router){}
 
   ngOnInit(){
-    this.detailsServices.about();
-  }
+    this.details.about();
+    }
+    logOut(){
+      this.details.signout();
+      this.router.navigate(['login'])
+
+   }
+
 }

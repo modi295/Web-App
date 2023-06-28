@@ -29,12 +29,13 @@ export class LoginComponent {
             localStorage.setItem("token",result.token);
             console.log(result)
             this.loginForm.reset();
-            this.route.navigate(['/about']);
+            this.details.storeToken(result.token);
+            this.route.navigate(['about']);
           }
           );
           alert('login succesful');
           this.loginForm.reset();
-          this.route.navigate(['']);
+          
         }
         else{
           alert('user not found');
@@ -43,6 +44,7 @@ export class LoginComponent {
       );
       
     }
+
     
     get user(){
       return this.loginForm.get('user')
