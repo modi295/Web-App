@@ -21,6 +21,7 @@ registerForm=new FormGroup({
 })
 registerUser(){
   this.details.saveDetailsData(this.registerForm.value).subscribe((result)=>{
+    
     console.log(result)
     this.registerForm.reset();
     this.route.navigate(['login']);

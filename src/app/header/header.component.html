@@ -3,8 +3,10 @@
     <ul>
         <li><a routerLink="">Home</a></li>
         <li><a routerLink="about">About Us</a></li>
-        <li><a routerLink="login">Login</a></li>
-        <li><a routerLink="register">Register</a></li>
+        <li><a routerLink="dashboard">Dashboard</a></li>
+        <li *ngIf="log()" (click)="logOut()" routerLink="login"><a href="#">logout</a></li>
+        <li *ngIf="!log()"><a routerLink="login">Login</a></li>
+        <li *ngIf="!log()"><a routerLink="register">Register</a></li>
     </ul>
 </nav>
 

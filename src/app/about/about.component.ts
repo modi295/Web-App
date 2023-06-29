@@ -13,10 +13,6 @@ export class AboutComponent {
   ngOnInit(){
     this.details.about();
     }
-    logOut(){
-      this.details.signout();
-      this.router.navigate(['login'])
-
-   }
+   
 
 }

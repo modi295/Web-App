@@ -27,9 +27,9 @@ export class LoginComponent {
         if(person){
           this.details.saveLoginData(this.loginForm.value).subscribe((result:any)=>{
             localStorage.setItem("token",result.token);
+            localStorage.setItem("user",result.insertlogin.user);
             console.log(result)
             this.loginForm.reset();
-            this.details.storeToken(result.token);
             this.route.navigate(['about']);
           }
           );

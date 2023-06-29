@@ -5,6 +5,8 @@ import { RegisterComponent } from './register/register.component';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './guards/auth.guard';
+import { RoleGuard } from './guards/role.guard';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {
@@ -22,7 +24,8 @@ const routes: Routes = [
    },
    {
     path:'',
-   component: HomeComponent
+   component: HomeComponent,
+   canActivate:[AuthGuard]
    },
    {
     path:'login/register',
@@ -31,6 +34,11 @@ const routes: Routes = [
    {
     path:'register/login',
     component: LoginComponent
+   },
+   {
+    path:'dashboard',
+    component:DashboardComponent,
+    canActivate:[AuthGuard,RoleGuard]
    }
  
 

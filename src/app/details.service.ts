@@ -27,9 +27,7 @@ export class DetailsService {
 
     })
   }
-  storeToken(tokenValue:string){
-    localStorage.setItem('token',tokenValue);
-  }
+  
   getToken(){
     return localStorage.getItem('token');
   }
@@ -39,6 +37,6 @@ export class DetailsService {
   }
   signout(){
     localStorage.clear();
-    
   }
+ 
 }

@@ -12,6 +12,8 @@ import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { RouterModule } from '@angular/router';
     RegisterComponent,
     LoginComponent,
     AboutComponent,
-    HomeComponent
+    HomeComponent,
+    DashboardComponent,
+   
   ],
   imports: [
     BrowserModule,
